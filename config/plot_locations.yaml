@@ -1,0 +1,10 @@
+locations:
+  - name: gulf_center
+    lat: 59.0
+    lon: 26.0
+  - name: tallinn
+    lat: 59.44
+    lon: 24.75
+  - name: helsinki
+    lat: 60.17
+    lon: 24.94

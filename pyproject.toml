@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deode-meteo"
+version = "0.1.0"
+description = "DEODE meteo fetch and processing pipeline for marine models"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "earthkit-data>=0.8.0",
+  "xarray>=2023.1.0",
+  "cfgrib>=0.9.10.4",
+  "numpy>=1.24",
+  "pyyaml>=6.0",
+  "matplotlib>=3.7",
+  "pyproj>=3.5",
+  "polytope-client>=1.0",
+]
+
+[project.optional-dependencies]
+xesmf = ["xesmf>=0.7.1"]
+
+[project.scripts]
+deode-meteo = "deode_meteo.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}

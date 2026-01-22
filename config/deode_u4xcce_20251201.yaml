@@ -1,0 +1,110 @@
+dataset:
+  class: d1
+  dataset: on-demand-extremes-dt
+  expver: "0099"
+  stream: oper
+  type: fc
+  levtype: sfc
+  georef: u4xcce
+  address: polytope.lumi.apps.dte.destination-earth.eu
+  source: destination-earth
+  time: "00"
+
+forecast:
+  step_hours: 1
+  max_step: 48
+  include_step0: true
+  accum_step_style: "0-{hour}"
+
+paths:
+  output_root: forcing/meteo/DEODE_fc_20251201_u4xcce
+  bathy_file: config/grid_u4xcce_box_500m.txt #bathy_meter.nc
+  grib_subdir: grib_raw
+  intermediate_subdir: intermediate
+  weights_subdir: weights
+  plots_subdir: plots
+  include_datetime_subdirs: false
+
+processing:
+  backend: cdo  # cdo | python
+  interpolate: true
+  generate_weights: false
+  rotate_winds: false #true
+  output_mode: merged  # merged | per_parameter
+  output_prefix: FORCE_deode
+  plots: true
+  plot_step_index: 0
+  plot_stride: 12
+  plot_regions:
+    - name: gulf
+      lon_min: 21.0
+      lon_max: 32.1
+      lat_min: 56.8
+      lat_max: 61.1
+  subset_box: null
+
+parameters:
+  t2:
+    short_name: 2t
+    param_id: 167
+    step_type: instant
+    interpolation: remaplin
+  rh2m:
+    short_name: 2r
+    param_id: 260242
+    step_type: instant
+    interpolation: remaplin
+  sh2m:
+    short_name: sh2
+    param_id: 174096
+    step_type: instant
+    interpolation: remaplin
+  u10:
+    short_name: 10u
+    param_id: 165
+    step_type: instant
+    interpolation: remaplin
+    group: wind10
+  v10:
+    short_name: 10v
+    param_id: 166
+    step_type: instant
+    interpolation: remaplin
+    group: wind10
+  msl:
+    short_name: msl
+    param_id: 151
+    step_type: instant
+    interpolation: remaplin
+  sp:
+    short_name: sp
+    param_id: 134
+    step_type: instant
+    interpolation: remaplin
+  tcc:
+    short_name: tcc
+    param_id: 164
+    step_type: instant
+    interpolation: remapmean
+  ssrd:
+    short_name: ssrd
+    param_id: 169
+    step_type: accum
+    interpolation: remapmean
+  strd:
+    short_name: strd
+    param_id: 175
+    step_type: accum
+    interpolation: remapmean
+  tp:
+    short_name: tp
+    param_id: 228
+    step_type: accum
+    interpolation: remapmean
+    units: mm
+    output_units: kg m-2 s-1
+  sf:
+    short_name: sf
+    param_id: 144
+    step_type: accum
+    interpolation: remapmean
