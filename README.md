@@ -1,3 +1,14 @@
+ # DEODE Meteo Forcing
+
+This script fetches **high‑resolution atmospheric forcing for marine models** via **Polytope**
+from the **DEODE On‑demand Extremes** dataset (`on-demand-extremes-dt`). The available simulations
+inventory can be browsed in the LUMI catalogue and DCMDB STAC:
+
+- https://catalogue.lumi.apps.dte.destination-earth.eu/
+- https://object-store.os-api.cci1.ecmwf.int/deode-dcmdb/stac-catalog/dcmdb-stac-catalog/index.html
+
+Copy the FDB request from the catalogue item into your YAML (`dataset.fdb_request`) to run the fetch.
+
 ## Requirements
 
 - Python 3.10+
